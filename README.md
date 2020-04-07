@@ -1,6 +1,12 @@
 # SESim
 
-Smart Environment SIMulator is a Unity plugin that enables the simulation of smart environments and the generation of sensor data. Various components of the smart home architecture are modelled and implemented.
+Smart Environment SIMulator 1.1 is a Unity plugin that enables the simulation of smart environments and the generation of sensor data. Various components of the smart home architecture are modelled and implemented and is an extension of SeSIM.
+
+ SESIM 1.1 has the following additions 
+ -Added multi user support
+ -Added a bigger (6 room ) environment : study and a second bedroon.
+ -Added  a few more  PB scripts to model ADL.
+ -Added  a new wearable sensor.
 
 # Installation
 
@@ -14,6 +20,7 @@ Please see detailed comments in the included scripts. Detailed design of the var
 
 # Citation
 
-If SESim is used to conduct research, please cite the following paper as a reference:
+If SESim 1.1 is used to conduct research, please cite the following paper as a reference because it is an extenison of work from Brandon, Ho:
 
-Ho, Brandon, Vogts, Dieter, Wesson, Janet L. (2019). A Smart Home Simulation Tool to Support the Recognition of Activities of Daily Living. https://github.com/BrandonHo/SESim
+Musharu,Timothy,Ho, Brandon, Vogts, Dieter, Wesson, Janet L. (2019). SeSim 1.1 A Smart Home Simulation Tool to Support the Recognition of Activities of Daily Living. https://github.com/BrandonHo/SESim
+
