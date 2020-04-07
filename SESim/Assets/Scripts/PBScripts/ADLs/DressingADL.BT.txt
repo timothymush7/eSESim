@@ -1,0 +1,73 @@
+tree("DressingADL")
+	sequence
+
+		// Acquire interaction sequence for interruptions
+		SelectRandomInteractionSequence("GlobalInterruptions", true)
+
+		// Reset interaction data and teleport inhabitant to random position
+		ResetInteractionData()
+		TeleportInhabitantToRandomSpawner()		
+
+		tree("SelectDressingADLVariation")		
+		tree("PerformDressingADLVariation")		
+				
+		DisplayTextInMainPanel("All ADL runs complete.")
+
+tree("SelectDressingADLVariation")
+	sequence
+		DisplayTextInMainPanel("Selecting ADL variation...")
+		random
+			tree("SetupDressingAfterWakingUp")
+			tree("SetupDressingBeforeSleeping")
+			tree("SetupDressingDuringDayRandom")
+
+		AdjustTimeForNextActivity()
+
+			
+tree("PerformDressingADLVariation")
+	sequence
+		// Activate voxel mesh, producers, poll sensors
+		tree("EnablePollGameObjects")
+
+		// Annotate start of ADL
+		AddSensorBookmark("dressing")
+
+		// Run the variation
+		DisplayTextInMainPanel("Performing ADL...")
+		ProcessInteractions()
+
+		// Annotate end of ADL
+		AnnotateSensorBookmarkEnd("dressing")
+
+		// Deactivate voxel mesh, producers, poll sensors
+		tree("DisablePollGameObjects")
+		DisplayTextInMainPanel("Completed Dressing ADL.")
+
+// Variations of Dressing ADL (noise in time + number of destinations)
+// --------------------------------------------------------------------
+// These variations aim to represent the variations when performing the 
+// ADL at different times, or based on other parameters.
+
+tree("SetupDressingAfterWakingUp")
+	sequence
+		SelectRandomInteractionSequence("DressingAfterWakingUp", false)
+		SetInitialTimeForNextActivity(7, 30, 0)
+		ToggleLights(false)
+		
+tree("SetupDressingBeforeSleeping")
+	sequence
+		SelectRandomInteractionSequence("DressingBeforeSleeping", false)
+		SetInitialTimeForNextActivity(19, 30, 0)
+		ToggleLights(true)
+
+tree("SetupDressingDuringDayRandom")
+	sequence
+		random
+			SelectRandomInteractionSequence("DressingDuringDayRandomShoes", false)
+			SelectRandomInteractionSequence("DressingDuringDayRandomSocks", false)
+			SelectRandomInteractionSequence("DressingDuringDayRandomUndergarments", false)
+			SelectRandomInteractionSequence("DressingDuringDayRandomShirt", false)
+			SelectRandomInteractionSequence("DressingDuringDayRandomPants", false)
+
+		SetInitialTimeForNextActivity(14, 30, 0)
+		ToggleLights(false)

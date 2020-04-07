@@ -1,0 +1,19 @@
+// Script representing a basic sequence of ADLs.
+
+tree("Root")
+	repeat 100
+		sequence
+			Wait(2.0)
+
+			// Initialise sensor stream
+			StartNewSensorStream()
+
+			// Setup & performance of ADL
+			tree("CookingADL")
+
+			// End sensor stream, record sensor readings to DB
+			EndCurrentSensorStream()
+			WriteSensorReadingsToDB()
+
+			Wait(2.0)
+		

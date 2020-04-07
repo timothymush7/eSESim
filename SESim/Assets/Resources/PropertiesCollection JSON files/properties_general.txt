@@ -1,0 +1,48 @@
+{
+	"properties": [
+		{
+			"gameObjectName": "KFridge",
+			"description": "Temperature",
+			"propertyType": "float",
+			"floatValue": -10.0,
+			"boolValue": 0,
+			"resetFloatValue": -10.0,
+			"resetBoolValue": 0
+		},
+		{
+			"gameObjectName": "KStove",
+			"description": "Temperature",
+			"propertyType": "float",
+			"floatValue": 50.0,
+			"boolValue": 0,
+			"resetFloatValue": 50.0,
+			"resetBoolValue": 0
+		},
+		{
+			"gameObjectName": "KSink",
+			"description": "Temperature",
+			"propertyType": "float",
+			"floatValue": 30.0,
+			"boolValue": 0,
+			"resetFloatValue": 40.0,
+			"resetBoolValue": 0
+		},
+		{
+			"gameObjectName": "BRShower",
+			"description": "Temperature",
+			"propertyType": "float",
+			"floatValue": 30.0,
+			"boolValue": 0,
+			"resetFloatValue": 30.0,
+			"resetBoolValue": 0
+		},
+		{
+			"gameObjectName": "BRSink",
+			"description": "Temperature",
+			"propertyType": "float",
+			"floatValue": 30.0,
+			"boolValue": 0,
+			"resetFloatValue": 30.0,
+			"resetBoolValue": 0
+		}]
+}

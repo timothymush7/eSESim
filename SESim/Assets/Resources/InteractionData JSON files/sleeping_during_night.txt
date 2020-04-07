@@ -1,0 +1,103 @@
+{
+	"ListName" : "SleepingDuringNight",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "UseToilet",
+			"TargetGameObjectName": "BRToilet",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["BRSwitchOnLight"]
+		},
+		{
+			"Description": "CollectWashingInstruments",
+			"TargetGameObjectName": "BRDrawer",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 8.0,
+			"DependencyDescriptions": ["BRSwitchOnLight"]
+		},
+		{
+			"Description": "BrushTeeth",
+			"TargetGameObjectName": "BRSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["CollectWashingInstruments"]
+		},
+		{
+			"Description": "FillSinkWithWater",
+			"TargetGameObjectName": "BRSink",
+			"ReactionCollectionDescription": "ToggleOnSink",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["BrushTeeth"]
+		},
+		{
+			"Description": "WashFace",
+			"TargetGameObjectName": "BRSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["FillSinkWithWater"]
+		},
+		{
+			"Description": "DrainSink",
+			"TargetGameObjectName": "BRSink",
+			"ReactionCollectionDescription": "ToggleOffSink",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashFace"]
+		},
+		{
+			"Description": "TurnOnShower",
+			"TargetGameObjectName": "BRShower",
+			"ReactionCollectionDescription": "ToggleOnShower",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": ["BRSwitchOnLight"]
+		},
+		{
+			"Description": "Shower",
+			"TargetGameObjectName": "BRShower",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["TurnOnShower"]
+		},
+		{
+			"Description": "TurnOffShower",
+			"TargetGameObjectName": "BRShower",
+			"ReactionCollectionDescription": "ToggleOffShower",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": ["Shower"]
+		},
+		{
+			"Description": "BRSwitchOnLight",
+			"TargetGameObjectName": "BRLightSwitch",
+			"ReactionCollectionDescription": "ToggleOnLight",
+			"InitialInteractionDuration": 1.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "BRSwitchOffLight",
+			"TargetGameObjectName": "BRLightSwitch",
+			"ReactionCollectionDescription": "ToggleOffLight",
+			"InitialInteractionDuration": 1.0,
+			"DependencyDescriptions": ["UseToilet", "DrainSink", "TurnOffShower"]
+		},
+		{
+			"Description": "BSwitchOffLight",
+			"TargetGameObjectName": "BLightSwitch",
+			"ReactionCollectionDescription": "ToggleOffLight",
+			"InitialInteractionDuration": 1.0,
+			"DependencyDescriptions": ["PutAwayItems", "BRSwitchOffLight"]
+		},
+		{
+			"Description": "PutAwayItems",
+			"TargetGameObjectName": "BBedsideDrawer",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "SleepOnBed",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 40.0,
+			"DependencyDescriptions": ["BSwitchOffLight"]
+		}]
+}

@@ -1,0 +1,60 @@
+tree("SleepingADL")
+	sequence
+
+		// Acquire interaction sequence for interruptions
+		SelectRandomInteractionSequence("GlobalInterruptions", true)
+
+		// Reset interaction data and teleport inhabitant to random position
+		ResetInteractionData()
+		TeleportInhabitantToRandomSpawner()		
+
+		tree("SelectSleepingADLVariation")		
+		tree("PerformSleepingADLVariation")		
+				
+		DisplayTextInMainPanel("All ADL runs complete.")
+
+tree("SelectSleepingADLVariation")
+	sequence
+		DisplayTextInMainPanel("Selecting ADL variation...")
+		random
+			tree("SetupSleepingDuringNight")
+			tree("SetupSleepingDuringDayNap")
+
+		AdjustTimeForNextActivity()
+
+			
+tree("PerformSleepingADLVariation")
+	sequence
+		// Activate voxel mesh, producers, poll sensors
+		tree("EnablePollGameObjects")
+
+		// Annotate start of ADL
+		AddSensorBookmark("sleeping")
+
+		// Run the variation
+		DisplayTextInMainPanel("Performing ADL...")
+		ProcessInteractions()
+
+		// Annotate end of ADL
+		AnnotateSensorBookmarkEnd("sleeping")
+
+		// Deactivate voxel mesh, producers, poll sensors
+		tree("DisablePollGameObjects")
+		DisplayTextInMainPanel("Completed Sleeping ADL.")
+
+// Variations of Sleeping ADL (noise in time + number of destinations)
+// --------------------------------------------------------------------
+// These variations aim to represent the variations when performing the 
+// ADL at different times, or based on other parameters.
+
+tree("SetupSleepingDuringNight")
+	sequence
+		SelectRandomInteractionSequence("SleepingDuringNight", false)
+		SetInitialTimeForNextActivity(20, 0, 0)
+		ToggleLights(true)
+		
+tree("SetupSleepingDuringDayNap")
+	sequence
+		SelectRandomInteractionSequence("SleepingDuringDayNap", false)
+		SetInitialTimeForNextActivity(14, 30, 0)
+		ToggleLights(false)

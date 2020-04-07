@@ -1,0 +1,103 @@
+{
+	"ListName" : "WashDishesAfterCooking",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "TurnOnSink",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "ToggleOnSink",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectCrockery",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectCutlery",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectBeverageware",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectPans",
+			"TargetGameObjectName": "KStove",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TurnOffSink",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "ToggleOffSink",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": ["TurnOnSink"]
+		},
+		{
+			"Description": "WashCrockery",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 20.0,
+			"DependencyDescriptions": ["TurnOffSink", "CollectCrockery"]
+		},
+		{
+			"Description": "WashCutlery",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 20.0,
+			"DependencyDescriptions": ["TurnOffSink", "CollectCutlery"]
+		},
+		{
+			"Description": "WashBeverageware",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 20.0,
+			"DependencyDescriptions": ["TurnOffSink", "CollectBeverageware"]
+		},
+		{
+			"Description": "WashPans",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 20.0,
+			"DependencyDescriptions": ["TurnOffSink", "CollectPans"]
+		},
+		{
+			"Description": "PlaceCrockeryInCupboard",
+			"TargetGameObjectName": "KCrockeryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashCrockery"]
+		},
+		{
+			"Description": "PlaceCutleryInCupboard",
+			"TargetGameObjectName": "KCutleryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashCutlery"]
+		},
+		{
+			"Description": "PlaceBeveragewareInCupboard",
+			"TargetGameObjectName": "KBeveragewareCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashBeverageware"]
+		},
+		{
+			"Description": "PlacePansInCupboard",
+			"TargetGameObjectName": "KCrockeryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashPans"]
+		}]
+}

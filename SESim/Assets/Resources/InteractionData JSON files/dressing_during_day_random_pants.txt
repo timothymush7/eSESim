@@ -1,0 +1,40 @@
+{
+	"ListName" : "DressingDuringDayRandomPants",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "CollectPants",
+			"TargetGameObjectName": "BBed",
+			"ConditionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TakeOffPants",
+			"TargetGameObjectName": "BBed",
+			"ConditionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["TakeOffShoes"]
+		},
+		{
+			"Description": "PutOnPants",
+			"TargetGameObjectName": "BBed",
+			"ConditionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["CollectPants", "TakeOffPants"]
+		},
+		{
+			"Description": "TakeOffShoes",
+			"TargetGameObjectName": "BBed",
+			"ConditionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "PutOnShoes",
+			"TargetGameObjectName": "BShirtsPantsCloset",
+			"ConditionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["PutOnPants"]
+		}]
+}

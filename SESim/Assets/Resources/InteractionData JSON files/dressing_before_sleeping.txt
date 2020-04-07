@@ -1,0 +1,61 @@
+{
+	"ListName" : "DressingBeforeSleeping",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "TakeOffShirt",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TakeOffPants",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["TakeOffShoes"]
+		},
+		{
+			"Description": "TakeOffShoes",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TakeOffSocks",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["TakeOffShoes"]
+		},
+		{
+			"Description": "CollectPyjamas",
+			"TargetGameObjectName": "BShirtsPantsCloset",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectUndergarments",
+			"TargetGameObjectName": "BUndergarmentsDrawer",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "ChangeUndergarments",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["TakeOffPants", "CollectUndergarments"]
+		},
+		{
+			"Description": "PutOnPyjamas",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["CollectPyjamas", "ChangeUndergarments", "TakeOffShirt", "TakeOffPants", "TakeOffShoes", "TakeOffSocks"]
+		}]
+}

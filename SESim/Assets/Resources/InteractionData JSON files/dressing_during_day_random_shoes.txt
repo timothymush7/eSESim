@@ -1,0 +1,26 @@
+{
+	"ListName" : "DressingDuringDayRandomShoes",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "CollectShoes",
+			"TargetGameObjectName": "BSocksShoesDrawer",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TakeOffShoes",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "PutOnShoes",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["TakeOffShoes", "CollectShoes"]
+		}]
+}

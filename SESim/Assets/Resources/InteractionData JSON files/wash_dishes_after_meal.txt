@@ -1,0 +1,82 @@
+{
+	"ListName" : "WashDishesAfterMeal",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "TurnOnSink",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "ToggleOnSink",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectCrockery",
+			"TargetGameObjectName": "KTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectCutlery",
+			"TargetGameObjectName": "KTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectBeverageware",
+			"TargetGameObjectName": "KTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TurnOffSink",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "ToggleOffSink",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": ["TurnOnSink"]
+		},
+		{
+			"Description": "WashCrockery",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["TurnOffSink", "CollectCrockery"]
+		},
+		{
+			"Description": "WashCutlery",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["TurnOffSink", "CollectCutlery"]
+		},
+		{
+			"Description": "WashBeverageware",
+			"TargetGameObjectName": "KSink",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["TurnOffSink", "CollectBeverageware"]
+		},
+		{
+			"Description": "PlaceCrockeryInCupboard",
+			"TargetGameObjectName": "KCrockeryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashCrockery"]
+		},
+		{
+			"Description": "PlaceCutleryInCupboard",
+			"TargetGameObjectName": "KCutleryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashCutlery"]
+		},
+		{
+			"Description": "PlaceBeveragewareInCupboard",
+			"TargetGameObjectName": "KBeveragewareCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["WashBeverageware"]
+		}]
+}

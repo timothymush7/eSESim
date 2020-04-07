@@ -1,0 +1,47 @@
+{
+	"ListName" : "DressingDuringDayRandomUndergarments",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "CollectUndergarments",
+			"TargetGameObjectName": "BUndergarmentsDrawer",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TakeOffShoes",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TakeOffPants",
+			"TargetGameObjectName": "BShirtsPantsCloset",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["TakeOffShoes"]
+		},
+		{
+			"Description": "ChangeUndergarments",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["CollectUndergarments", "TakeOffPants"]
+		},
+		{
+			"Description": "PutOnPants",
+			"TargetGameObjectName": "BShirtsPantsCloset",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["ChangeUndergarments"]
+		},
+		{
+			"Description": "PutOnShoes",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["PutOnPants"]
+		}]
+}

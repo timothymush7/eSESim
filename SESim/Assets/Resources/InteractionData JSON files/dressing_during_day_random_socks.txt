@@ -1,0 +1,40 @@
+{
+	"ListName" : "DressingDuringDayRandomSocks",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "CollectSocks",
+			"TargetGameObjectName": "BSocksShoesDrawer",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "TakeOffSocks",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["TakeOffShoes"]
+		},
+		{
+			"Description": "PutOnSocks",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["CollectSocks", "TakeOffSocks"]
+		},
+		{
+			"Description": "TakeOffShoes",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "PutOnShoes",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["PutOnSocks"]
+		}]
+}

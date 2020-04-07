@@ -1,0 +1,25 @@
+// Common callbacks shared by BT scripts
+
+// These callbacks are found in the PBGUILayerMethods class
+// ---------------------------------------------------------------
+
+tree("ResetData")
+	sequence
+		DisplayTextInMainPanel("Clearing old movement data...")
+		ResetGUI()
+
+// These callbacks are found in the PBSimulationLayerMethods class
+// ---------------------------------------------------------------
+
+tree("EnablePollGameObjects")
+	sequence
+		// Toggle on voxel mesh, producers, poll sensors etc.
+		ResetVoxelMesh()
+		ToggleVoxelMesh(true)
+		TogglePollSensors(true)
+
+tree("DisablePollGameObjects")
+	sequence
+		// Toggle off voxel mesh, producers, poll sensors, etc.
+		ToggleVoxelMesh(false)
+		TogglePollSensors(false)

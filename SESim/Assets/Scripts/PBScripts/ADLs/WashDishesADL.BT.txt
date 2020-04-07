@@ -1,0 +1,87 @@
+tree("WashDishesADL")
+	sequence
+
+		// Acquire interaction sequence for interruptions
+		SelectRandomInteractionSequence("GlobalInterruptions", true)
+
+		// Reset interaction data and teleport inhabitant to random position
+		ResetInteractionData()
+		TeleportInhabitantToRandomSpawner()		
+
+		tree("SelectWashDishesADLVariation")		
+		tree("PerformWashDishesADLVariation")		
+				
+		DisplayTextInMainPanel("All ADL runs complete.")
+
+tree("SelectWashDishesADLVariation")
+	sequence
+		DisplayTextInMainPanel("Selecting ADL variation...")
+		random
+			tree("SetupWashDishesAfterCookingBreakfast")
+			tree("SetupWashDishesAfterCookingLunch")
+			tree("SetupWashDishesAfterCookingSupper")
+			tree("SetupWashDishesAfterBreakfast")
+			tree("SetupWashDishesAfterLunch")
+			tree("SetupWashDishesAfterSupper")
+
+		AdjustTimeForNextActivity()
+			
+tree("PerformWashDishesADLVariation")
+	sequence
+		// Activate voxel mesh, producers, poll sensors
+		tree("EnablePollGameObjects")
+
+		// Annotate start of ADL
+		AddSensorBookmark("washdishes")
+
+		// Run the variation
+		DisplayTextInMainPanel("Performing ADL...")
+		ProcessInteractions()
+
+		// Annotate end of ADL
+		AnnotateSensorBookmarkEnd("washdishes")
+
+		// Deactivate voxel mesh, producers, poll sensors
+		tree("DisablePollGameObjects")
+		DisplayTextInMainPanel("Completed Wash Dishes ADL.")
+
+// Variations of Wash Dishes ADL (noise in time + number of destinations)
+// --------------------------------------------------------------------
+// These variations aim to represent the variations when performing the 
+// ADL at different times, or based on other parameters.
+
+tree("SetupWashDishesAfterCookingBreakfast")
+	sequence
+		SelectRandomInteractionSequence("WashDishesAfterCooking", false)
+		SetInitialTimeForNextActivity(8, 0, 0)
+		ToggleLights(false)
+
+tree("SetupWashDishesAfterCookingLunch")
+	sequence
+		SelectRandomInteractionSequence("WashDishesAfterCooking", false)
+		SetInitialTimeForNextActivity(14, 0, 0)
+		ToggleLights(false)
+
+tree("SetupWashDishesAfterCookingSupper")
+	sequence
+		SelectRandomInteractionSequence("WashDishesAfterCooking", false)
+		SetInitialTimeForNextActivity(18, 30, 0)
+		ToggleLights(true)
+
+tree("SetupWashDishesAfterBreakfast")
+	sequence
+		SelectRandomInteractionSequence("WashDishesAfterMeal", false)
+		SetInitialTimeForNextActivity(8, 30, 0)
+		ToggleLights(false)
+		
+tree("SetupWashDishesAfterLunch")
+	sequence
+		SelectRandomInteractionSequence("WashDishesAfterMeal", false)
+		SetInitialTimeForNextActivity(14, 30, 0)
+		ToggleLights(false)
+
+tree("SetupWashDishesAfterSupper")
+	sequence
+		SelectRandomInteractionSequence("WashDishesAfterMeal", false)
+		SetInitialTimeForNextActivity(19, 0, 0)
+		ToggleLights(true)

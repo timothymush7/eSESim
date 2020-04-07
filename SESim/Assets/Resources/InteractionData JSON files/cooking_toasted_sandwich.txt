@@ -1,0 +1,145 @@
+{
+	"ListName" : "CookingToastedSandwich",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "OpenFridge",
+			"TargetGameObjectName": "KFridge",
+			"ReactionCollectionDescription": "ToggleOnFridge",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectBreadAndButter",
+			"TargetGameObjectName": "KFridge",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 6.0,
+			"DependencyDescriptions": ["OpenFridge"]
+		},
+		{
+			"Description": "CollectCheeseAndTomato",
+			"TargetGameObjectName": "KFridge",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 6.0,
+			"DependencyDescriptions": ["OpenFridge"]
+		},
+		{
+			"Description": "CloseFridge",
+			"TargetGameObjectName": "KFridge",
+			"ReactionCollectionDescription": "ToggleOffFridge",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": ["CollectBreadAndButter", "CollectCheeseAndTomato"]
+		},
+		{
+			"Description": "CollectBreadBoard",
+			"TargetGameObjectName": "KCutleryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectButterKnife",
+			"TargetGameObjectName": "KCutleryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectCuttingKnife",
+			"TargetGameObjectName": "KCutleryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectSpatula",
+			"TargetGameObjectName": "KCutleryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectFryingPan",
+			"TargetGameObjectName": "KCrockeryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "CollectServingPlate",
+			"TargetGameObjectName": "KCrockeryCupboard",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "ButterBread",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 10.0,
+			"DependencyDescriptions": ["CollectBreadAndButter", "CollectBreadBoard", "CollectButterKnife"]
+		},
+		{
+			"Description": "CutCheese",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["CollectCheeseAndTomato", "CollectBreadBoard", "CollectCuttingKnife"]
+		},
+		{
+			"Description": "CutTomato",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 15.0,
+			"DependencyDescriptions": ["CollectCheeseAndTomato", "CollectBreadBoard", "CollectCuttingKnife"]
+		},
+		{
+			"Description": "PlaceCheeseOnBread",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": ["ButterBread", "CutCheese"]
+		},
+		{
+			"Description": "PlaceTomatoOnBread",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": ["ButterBread", "CutTomato"]
+		},
+		{
+			"Description": "PlacePanOnStove",
+			"TargetGameObjectName": "KStove",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": ["CollectFryingPan"]
+		},
+		{
+			"Description": "SwitchOnStove",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "ToggleOnStove",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": ["CloseFridge", "PlaceCheeseOnBread", "PlaceTomatoOnBread"]
+		},
+		{
+			"Description": "ToastSandwichInPan",
+			"TargetGameObjectName": "KStove",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 60.0,
+			"DependencyDescriptions": ["PlacePanOnStove", "SwitchOnStove", "CollectSpatula"]
+		},
+		{
+			"Description": "SwitchOffStove",
+			"TargetGameObjectName": "KStove",
+			"ReactionCollectionDescription": "ToggleOffStove",
+			"InitialInteractionDuration": 5.0,
+			"DependencyDescriptions": ["ToastSandwichInPan"]
+		},
+		{
+			"Description": "ServeSandwichOnPlate",
+			"TargetGameObjectName": "KPrepTable",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 3.0,
+			"DependencyDescriptions": ["CollectServingPlate", "SwitchOffStove"]
+		}]
+}

@@ -1,0 +1,12 @@
+{
+	"ListName" : "SleepingDuringDayNap",
+	"GenerateSequenceVariations" : false,
+	"InteractionDataArray": [
+		{
+			"Description": "NapOnBed",
+			"TargetGameObjectName": "BBed",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 30.0,
+			"DependencyDescriptions": []
+		}]
+}

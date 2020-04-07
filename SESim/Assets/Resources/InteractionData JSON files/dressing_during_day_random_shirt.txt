@@ -1,0 +1,19 @@
+{
+	"ListName" : "DressingDuringDayRandomShirt",
+	"GenerateSequenceVariations" : true,
+	"InteractionDataArray": [
+		{
+			"Description": "CollectShirt",
+			"TargetGameObjectName": "BShirtsPantsCloset",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": []
+		},
+		{
+			"Description": "ChangeShirt",
+			"TargetGameObjectName": "BShirtsPantsCloset",
+			"ReactionCollectionDescription": "",
+			"InitialInteractionDuration": 7.0,
+			"DependencyDescriptions": ["CollectShirt"]
+		}]
+}

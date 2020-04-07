@@ -1,0 +1,67 @@
+tree("CookingADL")
+	sequence
+
+		// Acquire interaction sequence for interruptions
+		SelectRandomInteractionSequence("GlobalInterruptions", true)
+
+		// Reset interaction data and teleport inhabitant to random position
+		ResetInteractionData()
+		TeleportInhabitantToRandomSpawner()		
+
+		tree("SelectCookingADLVariation")		
+		tree("PerformCookingADLVariation")		
+				
+		DisplayTextInMainPanel("All ADL runs complete.")
+
+tree("SelectCookingADLVariation")
+	sequence
+		DisplayTextInMainPanel("Selecting ADL variation...")
+		random
+			tree("SetupCookingBreakfast")
+			tree("SetupCookingLunch")
+			tree("SetupCookingSupper")
+
+		AdjustTimeForNextActivity()
+
+			
+tree("PerformCookingADLVariation")
+	sequence
+		// Activate voxel mesh, producers, poll sensors
+		tree("EnablePollGameObjects")
+
+		// Annotate start of ADL
+		AddSensorBookmark("cooking")
+
+		// Run the variation
+		DisplayTextInMainPanel("Performing ADL...")
+		ProcessInteractions()
+
+		// Annotate end of ADL
+		AnnotateSensorBookmarkEnd("cooking")
+
+		// Deactivate voxel mesh, producers, poll sensors
+		tree("DisablePollGameObjects")
+		DisplayTextInMainPanel("Completed Cooking ADL.")
+
+// Variations of Cooking ADL (noise in time + number of destinations)
+// --------------------------------------------------------------------
+// These variations aim to represent the variations when performing the 
+// ADL at different times, or based on other parameters.
+
+tree("SetupCookingBreakfast")
+	sequence
+		SelectRandomInteractionSequence("CookingToastedSandwich", false)
+		SetInitialTimeForNextActivity(8, 0, 0)
+		ToggleLights(false)
+		
+tree("SetupCookingLunch")
+	sequence
+		SelectRandomInteractionSequence("CookingToastedSandwich", false)
+		SetInitialTimeForNextActivity(12, 0, 0)
+		ToggleLights(false)
+
+tree("SetupCookingSupper")
+	sequence
+		SelectRandomInteractionSequence("CookingToastedSandwich", false)
+		SetInitialTimeForNextActivity(18, 0, 0)
+		ToggleLights(true)
